@@ -32,7 +32,7 @@ const Projects = () => {
       title: "MediFind",
       category: "Healthcare Technology",
       description: "Medical Resource Discovery",
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
+      image: "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
       url: "https://medifind123.vercel.app/",
     }
   ];

@@ -11,24 +11,20 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <img 
-            src="@assets/ef3e4326-96a3-43de-90f0-6a47643ce978_1756063914627.jpg" 
-            alt="Tilak Sorte - Available for work" 
-            className="w-48 h-48 rounded-3xl mx-auto mb-12 object-cover shadow-2xl"
-            data-testid="contact-profile-image"
-          />
-          
           <motion.div 
-            className="flex items-center justify-center mb-8"
+            className="relative mb-12 group max-w-xs mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center space-x-3 bg-gray-900 px-6 py-3 rounded-full">
-              <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-              <span className="text-white font-medium" data-testid="availability-status">Available For Work</span>
-            </div>
+            <img 
+              src="https://i.ibb.co/YTWsxyqF/available-for-work.png" 
+              alt="Available for work" 
+              className="w-full h-auto rounded-2xl transition-all duration-500"
+              data-testid="contact-available-badge"
+            />
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
           </motion.div>
           
           <motion.div 

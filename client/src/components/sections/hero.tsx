@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -10,32 +11,75 @@ const Hero = () => {
     }
   };
 
+  const [mousePosition, setMousePosition] = React.useState({ x: 0, y: 0 });
+  const badgeRef = React.useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (badgeRef.current) {
+      const rect = badgeRef.current.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      setMousePosition({ x, y });
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setMousePosition({ x: 0, y: 0 });
+  };
+
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-black text-white relative">
+    <section id="home" className="min-h-screen flex items-center justify-center bg-black text-white relative overflow-hidden">
       <div className="container mx-auto px-6 text-center">
-        <motion.div
-          className="mb-12"
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <img 
-            src="@assets/ef3e4326-96a3-43de-90f0-6a47643ce978_1756063914627.jpg" 
-            alt="Tilak Sorte - Tech Enthusiast" 
-            className="w-64 h-64 rounded-3xl mx-auto object-cover shadow-2xl"
-            data-testid="profile-image"
-          />
-        </motion.div>
-        
-        <motion.h1 
-          className="text-7xl md:text-9xl font-bold mb-12 tracking-wider leading-none"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          data-testid="hero-title"
-        >
-          TILAK SORTE
-        </motion.h1>
+        <div className="flex flex-col items-center justify-center">
+          <motion.div
+            ref={badgeRef}
+            className="relative mb-8 group"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+          >
+            <motion.div 
+              className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden relative z-10"
+              animate={{
+                scale: mousePosition.x || mousePosition.y ? 1.05 : 1,
+                rotateX: mousePosition.y ? (mousePosition.y - 50) / 20 : 0,
+                rotateY: mousePosition.x ? (mousePosition.x - 50) / 20 : 0,
+              }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+            >
+              <img 
+                src="https://i.ibb.co/YTWsxyqF/available-for-work.png" 
+                alt="Available for work" 
+                className="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-500"
+                data-testid="available-badge"
+                style={{
+                  transform: `perspective(1000px) rotateX(${-(mousePosition.y - 50) / 40}deg) rotateY(${(mousePosition.x - 50) / 40}deg)`,
+                }}
+              />
+            </motion.div>
+            <motion.div 
+              className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 blur-xl -z-10"
+              animate={{
+                x: (mousePosition.x - 50) / 5,
+                y: (mousePosition.y - 50) / 5,
+                opacity: mousePosition.x || mousePosition.y ? 0.3 : 0,
+              }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+            />
+          </motion.div>
+          
+          <motion.h1 
+            className="text-7xl md:text-9xl font-bold tracking-wider leading-none"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+            data-testid="hero-title"
+          >
+            TILAK SORTE
+          </motion.h1>
+        </div>
         
         <motion.div 
           className="flex items-center justify-center mb-8"

@@ -1,0 +1,870 @@
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tilak Sorte - Web Developer | AI & Automation Explorer</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Tilak Sorte - Tech enthusiast passionate about web development, AI automation, and hackathons. Top 10 finalist at IIT Delhi Space Hackathon.">
+    <meta name="keywords" content="web developer, AI automation, hackathons, full-stack developer, n8n automation, YOLO object detection">
+    <meta name="author" content="Tilak Sorte">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Tilak Sorte - Web Developer | AI & Automation Explorer">
+    <meta property="og:description" content="Building intelligent solutions at the intersection of Web, AI & Automation">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tilaksorte.vercel.app">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy': '#022b3a',
+                        'teal': '#1f7a8c',
+                        'light-blue': '#bfdbf7',
+                        'pale-blue': '#e1e5f2',
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.6s ease-out',
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'bounce-subtle': 'bounceSubtle 2s ease-in-out infinite',
+                        'typing': 'typing 3.5s steps(40, end)',
+                    }
+                }
+            },
+            darkMode: 'class'
+        }
+    </script>
+    
+    <style>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes bounceSubtle {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        .glass-morphism {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark .glass-morphism {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #1f7a8c, #bfdbf7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #1f7a8c, #bfdbf7);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body class="font-inter bg-white dark:bg-navy text-gray-900 dark:text-white transition-colors duration-300">
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-morphism">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text">TS</div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-teal transition-colors">Home</a>
+                    <a href="#about" class="hover:text-teal transition-colors">About</a>
+                    <a href="#projects" class="hover:text-teal transition-colors">Projects</a>
+                    <a href="#skills" class="hover:text-teal transition-colors">Skills</a>
+                    <a href="#timeline" class="hover:text-teal transition-colors">Timeline</a>
+                    <a href="#contact" class="hover:text-teal transition-colors">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <!-- Dark/Light Mode Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="md:hidden p-2">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700">
+                <div class="flex flex-col space-y-4 mt-4">
+                    <a href="#home" class="hover:text-teal transition-colors">Home</a>
+                    <a href="#about" class="hover:text-teal transition-colors">About</a>
+                    <a href="#projects" class="hover:text-teal transition-colors">Projects</a>
+                    <a href="#skills" class="hover:text-teal transition-colors">Skills</a>
+                    <a href="#timeline" class="hover:text-teal transition-colors">Timeline</a>
+                    <a href="#contact" class="hover:text-teal transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-navy via-teal to-navy opacity-90"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center">
+                <!-- Professional profile image placeholder -->
+                <div class="mb-8 animate-fade-in">
+                    <!-- Professional developer headshot in modern office setting -->
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=400" 
+                         alt="Tilak Sorte - Professional Developer" 
+                         class="w-32 h-32 rounded-full mx-auto shadow-2xl border-4 border-light-blue">
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in-up text-white">
+                    Hi, I'm <span class="gradient-text">Tilak Sorte</span>
+                </h1>
+                
+                <p class="text-2xl md:text-3xl mb-8 text-light-blue animate-fade-in-up">
+                    Building Intelligent Solutions at the Intersection of
+                </p>
+                
+                <!-- Dynamic text cycling effect -->
+                <div class="text-3xl md:text-4xl font-semibold mb-12 h-16 flex items-center justify-center">
+                    <span id="dynamic-text" class="text-teal"></span>
+                    <span class="animate-pulse">|</span>
+                </div>
+                
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-up">
+                    <a href="#projects" class="bg-teal hover:bg-teal/80 text-white px-8 py-4 rounded-full font-semibold transition-all hover:scale-105 hover:shadow-lg">
+                        <i class="fas fa-code mr-2"></i>View Projects
+                    </a>
+                    <a href="https://tilaksorte.com/resume.pdf" target="_blank" class="bg-transparent border-2 border-light-blue text-light-blue hover:bg-light-blue hover:text-navy px-8 py-4 rounded-full font-semibold transition-all hover:scale-105">
+                        <i class="fas fa-download mr-2"></i>Download Resume
+                    </a>
+                </div>
+                
+                <!-- Scroll indicator -->
+                <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-subtle">
+                    <i class="fas fa-chevron-down text-2xl text-light-blue"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Me Section -->
+    <section id="about" class="py-20 bg-pale-blue dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">About Me</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-teal to-light-blue mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <p class="text-lg leading-relaxed">
+                        I'm a passionate <strong>tech enthusiast</strong> who thrives at the intersection of innovation, entrepreneurship, and problem-solving. My journey in technology is driven by a relentless curiosity to build solutions that make a real-world impact.
+                    </p>
+                    
+                    <p class="text-lg leading-relaxed">
+                        Through my experience in national hackathons including <strong>SIH</strong>, <strong>IIT Delhi Space Hackathon (Top 10)</strong>, and <strong>IIIT Guwahati Hacksagon (Finalist)</strong>, I've learned to transform complex challenges into elegant, automated solutions.
+                    </p>
+                    
+                    <div class="bg-gradient-to-r from-teal to-light-blue p-6 rounded-2xl text-white">
+                        <p class="text-xl font-semibold italic">
+                            "My mission is turning innovative ideas into impactful solutions that bridge the gap between technology and human needs."
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-6 text-center">
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                            <h3 class="text-2xl font-bold text-teal mb-2">4+</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">Major Projects</p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                            <h3 class="text-2xl font-bold text-teal mb-2">5+</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">Hackathons</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-6">
+                    <!-- Modern tech workspace with multiple monitors and code -->
+                    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400" 
+                         alt="Modern tech workspace setup" 
+                         class="rounded-2xl shadow-2xl w-full">
+                    
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                        <h3 class="text-xl font-semibold mb-4 text-teal">Current Focus</h3>
+                        <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                            <li><i class="fas fa-robot text-teal mr-2"></i>AI-driven automation workflows</li>
+                            <li><i class="fas fa-code text-teal mr-2"></i>Full-stack web development</li>
+                            <li><i class="fas fa-trophy text-teal mr-2"></i>Competitive hackathon participation</li>
+                            <li><i class="fas fa-graduation-cap text-teal mr-2"></i>B.Tech in Electronics & Computer Science</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white dark:bg-navy">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Featured Projects</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">Showcasing innovation through code and creativity</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-teal to-light-blue mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project 1: Automated Workflows with n8n -->
+                <div class="bg-gradient-to-br from-white to-pale-blue dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden">
+                    <!-- API automation workflow visualization -->
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300" 
+                         alt="Automated workflow visualization with APIs and data flow" 
+                         class="w-full h-48 object-cover">
+                    
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-teal">Automated Workflows with n8n</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Designed and deployed comprehensive automation pipelines integrating APIs, email triggers, and complex workflows to reduce manual processes by 80%.</p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-teal text-white px-3 py-1 rounded-full text-sm">n8n</span>
+                            <span class="bg-teal text-white px-3 py-1 rounded-full text-sm">APIs</span>
+                            <span class="bg-teal text-white px-3 py-1 rounded-full text-sm">Webhooks</span>
+                            <span class="bg-teal text-white px-3 py-1 rounded-full text-sm">Automation</span>
+                        </div>
+                        
+                        <div class="flex space-x-4">
+                            <a href="https://n8n-automation.vercel.app" target="_blank" class="bg-teal hover:bg-teal/80 text-white px-4 py-2 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </a>
+                            <a href="https://github.com/hysonberg27/n8n-workflows" target="_blank" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 px-4 py-2 rounded-lg transition-colors">
+                                <i class="fab fa-github mr-2"></i>GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2: Object Detection with YOLOv8 -->
+                <div class="bg-gradient-to-br from-white to-pale-blue dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden">
+                    <!-- Computer vision and AI detection visualization -->
+                    <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300" 
+                         alt="Computer vision and AI object detection interface" 
+                         class="w-full h-48 object-cover">
+                    
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-teal">Object Detection with YOLOv8</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Built and trained a real-time object detection model using YOLOv8 with custom dataset achieving 92% accuracy for precise object identification and tracking.</p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-teal text-white px-3 py-1 rounded-full text-sm">YOLOv8</span>
+                            <span class="bg-teal text-white px-3 py-1 rounded-full text-sm">Python</span>
+                            <span class="bg-teal text-white px-3 py-1 rounded-full text-sm">OpenCV</span>
+                            <span class="bg-teal text-white px-3 py-1 rounded-full text-sm">AI/ML</span>
+                        </div>
+                        
+                        <div class="flex space-x-4">
+                            <a href="https://yolo-detection.vercel.app" target="_blank" class="bg-teal hover:bg-teal/80 text-white px-4 py-2 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </a>
+                            <a href="https://github.com/hysonberg27/yolo-detection" target="_blank" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 px-4 py-2 rounded-lg transition-colors">
+                                <i class="fab fa-github mr-2"></i>GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3: Bookstore Website -->
+                <div class="bg-gradient-to-br from-white to-pale-blue dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden">
+                    <!-- E-commerce website interface -->
+                    <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300" 
+                         alt="Modern e-commerce bookstore website interface" 
+                         class="w-full h-48 object-cover">
+                    
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-teal">Bookstore Website</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Developed a comprehensive full-stack e-commerce platform simulating complete online sales workflow with user authentication, payment integration, and inventory management.</p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-teal text-white px-3 py-1 rounded-full text-sm">React</span>
+                            <span class="bg-teal text-white px-3 py-1 rounded-full text-sm">Node.js</span>
+                            <span class="bg-teal text-white px-3 py-1 rounded-full text-sm">MongoDB</span>
+                            <span class="bg-teal text-white px-3 py-1 rounded-full text-sm">Express</span>
+                        </div>
+                        
+                        <div class="flex space-x-4">
+                            <a href="https://bookstore-tilak.vercel.app" target="_blank" class="bg-teal hover:bg-teal/80 text-white px-4 py-2 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </a>
+                            <a href="https://github.com/hysonberg27/bookstore-website" target="_blank" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 px-4 py-2 rounded-lg transition-colors">
+                                <i class="fab fa-github mr-2"></i>GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4: Cargo Management Website -->
+                <div class="bg-gradient-to-br from-white to-pale-blue dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden">
+                    <!-- Space logistics and cargo management interface -->
+                    <img src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300" 
+                         alt="Space logistics and cargo management dashboard" 
+                         class="w-full h-48 object-cover">
+                    
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-teal">Cargo Management System</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Created an advanced logistics tracking system at IIT Delhi Space Hackathon (Final Round) for efficient space cargo project management and real-time monitoring.</p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-teal text-white px-3 py-1 rounded-full text-sm">React</span>
+                            <span class="bg-teal text-white px-3 py-1 rounded-full text-sm">TypeScript</span>
+                            <span class="bg-teal text-white px-3 py-1 rounded-full text-sm">PostgreSQL</span>
+                            <span class="bg-teal text-white px-3 py-1 rounded-full text-sm">Docker</span>
+                        </div>
+                        
+                        <div class="flex space-x-4">
+                            <a href="https://space-cargo.vercel.app" target="_blank" class="bg-teal hover:bg-teal/80 text-white px-4 py-2 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </a>
+                            <a href="https://github.com/hysonberg27/space-cargo-management" target="_blank" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 px-4 py-2 rounded-lg transition-colors">
+                                <i class="fab fa-github mr-2"></i>GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-pale-blue dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Technical Skills</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">Technologies I use to bring ideas to life</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-teal to-light-blue mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8">
+                <!-- HTML -->
+                <div class="skill-item group bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 text-center relative">
+                    <i class="fab fa-html5 text-4xl text-orange-500 mb-4"></i>
+                    <h3 class="font-semibold text-sm">HTML5</h3>
+                    <div class="skill-tooltip absolute -top-16 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-3 py-2 rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                        Semantic markup and accessibility
+                    </div>
+                </div>
+                
+                <!-- CSS -->
+                <div class="skill-item group bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 text-center relative">
+                    <i class="fab fa-css3-alt text-4xl text-blue-500 mb-4"></i>
+                    <h3 class="font-semibold text-sm">CSS3</h3>
+                    <div class="skill-tooltip absolute -top-16 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-3 py-2 rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                        Responsive design & animations
+                    </div>
+                </div>
+                
+                <!-- JavaScript -->
+                <div class="skill-item group bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 text-center relative">
+                    <i class="fab fa-js text-4xl text-yellow-500 mb-4"></i>
+                    <h3 class="font-semibold text-sm">JavaScript</h3>
+                    <div class="skill-tooltip absolute -top-16 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-3 py-2 rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                        ES6+ features & async programming
+                    </div>
+                </div>
+                
+                <!-- React -->
+                <div class="skill-item group bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 text-center relative">
+                    <i class="fab fa-react text-4xl text-blue-400 mb-4"></i>
+                    <h3 class="font-semibold text-sm">React</h3>
+                    <div class="skill-tooltip absolute -top-16 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-3 py-2 rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                        Component-based architecture
+                    </div>
+                </div>
+                
+                <!-- Python -->
+                <div class="skill-item group bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 text-center relative">
+                    <i class="fab fa-python text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="font-semibold text-sm">Python</h3>
+                    <div class="skill-tooltip absolute -top-16 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-3 py-2 rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                        AI/ML & automation scripts
+                    </div>
+                </div>
+                
+                <!-- APIs -->
+                <div class="skill-item group bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 text-center relative">
+                    <i class="fas fa-plug text-4xl text-green-500 mb-4"></i>
+                    <h3 class="font-semibold text-sm">APIs</h3>
+                    <div class="skill-tooltip absolute -top-16 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-3 py-2 rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                        RESTful services & integration
+                    </div>
+                </div>
+                
+                <!-- n8n -->
+                <div class="skill-item group bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 text-center relative">
+                    <i class="fas fa-robot text-4xl text-purple-500 mb-4"></i>
+                    <h3 class="font-semibold text-sm">n8n</h3>
+                    <div class="skill-tooltip absolute -top-16 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-3 py-2 rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                        Workflow automation platform
+                    </div>
+                </div>
+                
+                <!-- GitHub -->
+                <div class="skill-item group bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 text-center relative">
+                    <i class="fab fa-github text-4xl text-gray-700 dark:text-gray-300 mb-4"></i>
+                    <h3 class="font-semibold text-sm">GitHub</h3>
+                    <div class="skill-tooltip absolute -top-16 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-3 py-2 rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                        Version control & collaboration
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Skills Section -->
+            <div class="mt-16 bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+                <h3 class="text-2xl font-bold mb-8 text-center gradient-text">Core Competencies</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <i class="fas fa-code text-4xl text-teal mb-4"></i>
+                        <h4 class="text-lg font-semibold mb-2">Full-Stack Development</h4>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">End-to-end web application development with modern frameworks and best practices</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-brain text-4xl text-teal mb-4"></i>
+                        <h4 class="text-lg font-semibold mb-2">AI & Machine Learning</h4>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Object detection, computer vision, and intelligent automation solutions</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-trophy text-4xl text-teal mb-4"></i>
+                        <h4 class="text-lg font-semibold mb-2">Competitive Programming</h4>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Problem-solving expertise proven through hackathon successes and project delivery</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Hackathon Timeline -->
+    <section id="timeline" class="py-20 bg-white dark:bg-navy">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Hackathon Journey</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">Key achievements and milestones</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-teal to-light-blue mx-auto"></div>
+            </div>
+            
+            <div class="relative">
+                <!-- Timeline line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-teal to-light-blue h-full"></div>
+                
+                <!-- Timeline Events -->
+                <div class="space-y-12">
+                    <!-- Event 1: IIT Delhi Space Hackathon -->
+                    <div class="flex items-center">
+                        <div class="w-1/2 pr-8 text-right">
+                            <div class="bg-gradient-to-br from-white to-pale-blue dark:from-gray-800 dark:to-gray-900 p-6 rounded-2xl shadow-lg">
+                                <h3 class="text-xl font-bold text-teal mb-2">IIT Delhi Space Hackathon</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-2">Top 10 Finalist</p>
+                                <p class="text-sm">Built innovative space cargo management system reaching final rounds among hundreds of participants</p>
+                                <span class="text-sm text-teal font-semibold">2024</span>
+                            </div>
+                        </div>
+                        <div class="relative z-10 flex items-center justify-center w-8 h-8 bg-teal rounded-full">
+                            <i class="fas fa-rocket text-white text-sm"></i>
+                        </div>
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+                    
+                    <!-- Event 2: IIIT Guwahati Hacksagon -->
+                    <div class="flex items-center">
+                        <div class="w-1/2 pr-8"></div>
+                        <div class="relative z-10 flex items-center justify-center w-8 h-8 bg-teal rounded-full">
+                            <i class="fas fa-trophy text-white text-sm"></i>
+                        </div>
+                        <div class="w-1/2 pl-8">
+                            <div class="bg-gradient-to-br from-white to-pale-blue dark:from-gray-800 dark:to-gray-900 p-6 rounded-2xl shadow-lg">
+                                <h3 class="text-xl font-bold text-teal mb-2">IIIT Guwahati Hacksagon</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-2">Finalist</p>
+                                <p class="text-sm">Showcased advanced automation solutions and AI-driven applications in competitive environment</p>
+                                <span class="text-sm text-teal font-semibold">2024</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Event 3: Smart India Hackathon -->
+                    <div class="flex items-center">
+                        <div class="w-1/2 pr-8 text-right">
+                            <div class="bg-gradient-to-br from-white to-pale-blue dark:from-gray-800 dark:to-gray-900 p-6 rounded-2xl shadow-lg">
+                                <h3 class="text-xl font-bold text-teal mb-2">Smart India Hackathon (SIH)</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-2">Participant</p>
+                                <p class="text-sm">Contributed to national-level innovation challenges focusing on technology solutions for social impact</p>
+                                <span class="text-sm text-teal font-semibold">2023-2024</span>
+                            </div>
+                        </div>
+                        <div class="relative z-10 flex items-center justify-center w-8 h-8 bg-teal rounded-full">
+                            <i class="fas fa-lightbulb text-white text-sm"></i>
+                        </div>
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+                    
+                    <!-- Event 4: MSME Hackathon -->
+                    <div class="flex items-center">
+                        <div class="w-1/2 pr-8"></div>
+                        <div class="relative z-10 flex items-center justify-center w-8 h-8 bg-teal rounded-full">
+                            <i class="fas fa-cogs text-white text-sm"></i>
+                        </div>
+                        <div class="w-1/2 pl-8">
+                            <div class="bg-gradient-to-br from-white to-pale-blue dark:from-gray-800 dark:to-gray-900 p-6 rounded-2xl shadow-lg">
+                                <h3 class="text-xl font-bold text-teal mb-2">MSME Hackathon</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-2">Participant</p>
+                                <p class="text-sm">Developed solutions for small and medium enterprises focusing on digital transformation and automation</p>
+                                <span class="text-sm text-teal font-semibold">2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Achievement Summary -->
+            <div class="mt-16 bg-gradient-to-r from-teal to-light-blue text-white p-8 rounded-2xl text-center">
+                <h3 class="text-2xl font-bold mb-4">Hackathon Impact</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div>
+                        <h4 class="text-3xl font-bold mb-2">5+</h4>
+                        <p class="text-sm opacity-90">Major Hackathons</p>
+                    </div>
+                    <div>
+                        <h4 class="text-3xl font-bold mb-2">2</h4>
+                        <p class="text-sm opacity-90">Finalist Positions</p>
+                    </div>
+                    <div>
+                        <h4 class="text-3xl font-bold mb-2">Top 10</h4>
+                        <p class="text-sm opacity-90">IIT Delhi Achievement</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-pale-blue dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Let's Connect</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">Ready to collaborate on your next project?</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-teal to-light-blue mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+                    <h3 class="text-2xl font-bold mb-6 gradient-text">Send a Message</h3>
+                    
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-semibold mb-2">Name *</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal focus:border-teal bg-white dark:bg-gray-700 transition-colors">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-semibold mb-2">Email *</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal focus:border-teal bg-white dark:bg-gray-700 transition-colors">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-semibold mb-2">Message *</label>
+                            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal focus:border-teal bg-white dark:bg-gray-700 transition-colors resize-none"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-gradient-to-r from-teal to-light-blue text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transition-all hover:scale-105">
+                            <i class="fas fa-paper-plane mr-2"></i>Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Contact Information & Map -->
+                <div class="space-y-8">
+                    <!-- Contact Info -->
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+                        <h3 class="text-2xl font-bold mb-6 gradient-text">Get in Touch</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-4">
+                                <i class="fas fa-envelope text-teal text-xl"></i>
+                                <div>
+                                    <p class="font-semibold">Email</p>
+                                    <a href="mailto:24sortet@rbunagpur.in" class="text-gray-600 dark:text-gray-300 hover:text-teal transition-colors">24sortet@rbunagpur.in</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <i class="fas fa-phone text-teal text-xl"></i>
+                                <div>
+                                    <p class="font-semibold">Phone</p>
+                                    <a href="tel:+919527692809" class="text-gray-600 dark:text-gray-300 hover:text-teal transition-colors">+91 9527692809</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <i class="fas fa-map-marker-alt text-teal text-xl"></i>
+                                <div>
+                                    <p class="font-semibold">Location</p>
+                                    <p class="text-gray-600 dark:text-gray-300">Nagpur, Maharashtra, India</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Social Links -->
+                        <div class="flex space-x-4 mt-8">
+                            <a href="https://www.linkedin.com/in/tilak-sorte-223ab1335/" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full transition-colors hover:scale-110">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/hysonberg27" target="_blank" class="bg-gray-800 hover:bg-gray-900 text-white p-3 rounded-full transition-colors hover:scale-110">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="mailto:24sortet@rbunagpur.in" class="bg-red-600 hover:bg-red-700 text-white p-3 rounded-full transition-colors hover:scale-110">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Map Element (Design Placeholder) -->
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+                        <h3 class="text-xl font-bold mb-4 gradient-text">Based in Nagpur</h3>
+                        <!-- Map placeholder - would integrate with Google Maps API in production -->
+                        <div class="bg-gradient-to-br from-teal to-light-blue rounded-lg h-48 flex items-center justify-center text-white">
+                            <div class="text-center">
+                                <i class="fas fa-map-marked-alt text-4xl mb-2"></i>
+                                <p class="text-lg font-semibold">Nagpur, Maharashtra</p>
+                                <p class="text-sm opacity-90">Central India • Tech Hub</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-navy dark:bg-black text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="text-3xl font-bold gradient-text mb-4">Tilak Sorte</div>
+                <p class="text-gray-400 mb-6">Building the future, one line of code at a time.</p>
+                
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="https://www.linkedin.com/in/tilak-sorte-223ab1335/" target="_blank" class="text-gray-400 hover:text-light-blue transition-colors">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="https://github.com/hysonberg27" target="_blank" class="text-gray-400 hover:text-light-blue transition-colors">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="mailto:24sortet@rbunagpur.in" class="text-gray-400 hover:text-light-blue transition-colors">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                </div>
+                
+                <div class="border-t border-gray-700 pt-6">
+                    <p class="text-gray-500 text-sm">© 2024 Tilak Sorte. All rights reserved. Built with 💚 and lots of ☕</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Custom 404 Page (Hidden by default) -->
+    <div id="error-404" class="hidden fixed inset-0 bg-navy flex items-center justify-center z-50">
+        <div class="text-center text-white">
+            <div class="text-8xl mb-8">🚀</div>
+            <h1 class="text-4xl font-bold mb-4">Oops! Cargo lost in space</h1>
+            <p class="text-xl mb-8">The page you're looking for seems to have drifted into the void.</p>
+            <button onclick="document.getElementById('error-404').classList.add('hidden')" class="bg-teal hover:bg-teal/80 text-white px-8 py-3 rounded-full font-semibold transition-colors">
+                Return to Earth 🌍
+            </button>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // Dynamic text cycling effect
+            const texts = ['Web Developer', 'AI Explorer', 'Hackathon Enthusiast', 'Automation Expert'];
+            let currentIndex = 0;
+            const dynamicTextElement = document.getElementById('dynamic-text');
+            
+            function typeText(text, element) {
+                let index = 0;
+                element.textContent = '';
+                const timer = setInterval(() => {
+                    element.textContent += text[index];
+                    index++;
+                    if (index === text.length) {
+                        clearInterval(timer);
+                        setTimeout(() => deleteText(element), 2000);
+                    }
+                }, 100);
+            }
+            
+            function deleteText(element) {
+                const text = element.textContent;
+                let index = text.length;
+                const timer = setInterval(() => {
+                    element.textContent = text.substring(0, index);
+                    index--;
+                    if (index < 0) {
+                        clearInterval(timer);
+                        currentIndex = (currentIndex + 1) % texts.length;
+                        setTimeout(() => typeText(texts[currentIndex], element), 500);
+                    }
+                }, 50);
+            }
+            
+            // Start the typing effect
+            typeText(texts[0], dynamicTextElement);
+            
+            // Dark/Light mode toggle
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            // Check for saved theme preference or default to light mode
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.classList.toggle('dark', savedTheme === 'dark');
+            
+            themeToggle.addEventListener('click', () => {
+                html.classList.toggle('dark');
+                const isDark = html.classList.contains('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            });
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        // Close mobile menu if open
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+            
+            // Scroll progress indicator
+            function updateScrollIndicator() {
+                const scrollTop = window.pageYOffset;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                document.querySelector('.scroll-indicator').style.transform = `translateX(${scrollPercent - 100}%)`;
+            }
+            
+            window.addEventListener('scroll', updateScrollIndicator);
+            
+            // Contact form handling
+            const contactForm = document.getElementById('contact-form');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // TODO: Implement actual form submission logic
+                // This would typically send data to a backend service
+                
+                // Show success message (placeholder)
+                alert('Thank you for your message! I\'ll get back to you soon.');
+                contactForm.reset();
+            });
+            
+            // Add scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe elements for scroll animations
+            document.querySelectorAll('section > div').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+            
+            // Initialize tooltips for skills
+            const skillItems = document.querySelectorAll('.skill-item');
+            skillItems.forEach(item => {
+                const tooltip = item.querySelector('.skill-tooltip');
+                if (tooltip) {
+                    item.addEventListener('mouseenter', () => {
+                        tooltip.style.opacity = '1';
+                    });
+                    item.addEventListener('mouseleave', () => {
+                        tooltip.style.opacity = '0';
+                    });
+                }
+            });
+            
+        })();
+    </script>
+</body>
+</html>
