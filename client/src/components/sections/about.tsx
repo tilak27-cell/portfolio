@@ -22,22 +22,35 @@ const About = () => {
             <h3 className="text-2xl font-semibold mb-12 text-gray-300" data-testid="stats-title">My Stats</h3>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 text-center max-w-5xl mx-auto">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 60 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                initial={{ opacity: 0, y: 60, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ 
+                  duration: 0.8, 
+                  delay: index * 0.15, 
+                  ease: "easeOut",
+                  type: "spring",
+                  stiffness: 100
+                }}
                 viewport={{ once: true }}
-                className="space-y-2"
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="space-y-4 group cursor-pointer"
                 data-testid={`stat-${stat.label.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
               >
-                <div className="text-6xl font-bold mb-2">
-                  {stat.number}
-                  {stat.showPlus && <span className="text-3xl text-gray-400">+</span>}
-                </div>
-                <p className="text-gray-400 text-lg">{stat.label}</p>
+                <motion.div 
+                  className="text-7xl md:text-8xl font-bold mb-4 leading-none group-hover:text-gray-200 transition-colors duration-300"
+                  initial={{ scale: 0.5 }}
+                  whileInView={{ scale: 1 }}
+                  transition={{ duration: 0.6, delay: index * 0.15 + 0.3, type: "spring", stiffness: 150 }}
+                  viewport={{ once: true }}
+                >
+                  <span className="text-white">{stat.number}</span>
+                  {stat.showPlus && <span className="text-4xl text-gray-400 ml-1">+</span>}
+                </motion.div>
+                <p className="text-gray-400 text-lg font-medium tracking-wide group-hover:text-gray-300 transition-colors duration-300">{stat.label}</p>
               </motion.div>
             ))}
           </div>

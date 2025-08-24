@@ -12,7 +12,7 @@ const Contact = () => {
           viewport={{ once: true }}
         >
           <img 
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=600" 
+            src="@assets/ef3e4326-96a3-43de-90f0-6a47643ce978_1756063914627.jpg" 
             alt="Tilak Sorte - Available for work" 
             className="w-48 h-48 rounded-3xl mx-auto mb-12 object-cover shadow-2xl"
             data-testid="contact-profile-image"
@@ -39,11 +39,11 @@ const Contact = () => {
             viewport={{ once: true }}
           >
             <a 
-              href="mailto:24sortet@rbunagpur.in"
+              href="mailto:tilaksorte52@gmail.com"
               className="text-2xl text-gray-300 hover:text-white transition-colors duration-300"
               data-testid="contact-email"
             >
-              24sortet@rbunagpur.in
+              tilaksorte52@gmail.com
             </a>
           </motion.div>
         </motion.div>

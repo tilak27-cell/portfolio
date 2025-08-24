@@ -20,7 +20,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <img 
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=600" 
+            src="@assets/ef3e4326-96a3-43de-90f0-6a47643ce978_1756063914627.jpg" 
             alt="Tilak Sorte - Tech Enthusiast" 
             className="w-64 h-64 rounded-3xl mx-auto object-cover shadow-2xl"
             data-testid="profile-image"
@@ -28,10 +28,10 @@ const Hero = () => {
         </motion.div>
         
         <motion.h1 
-          className="text-6xl md:text-8xl font-bold mb-8 tracking-wider"
+          className="text-7xl md:text-9xl font-bold mb-12 tracking-wider leading-none"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           data-testid="hero-title"
         >
           TILAK SORTE
@@ -50,15 +50,13 @@ const Hero = () => {
         </motion.div>
         
         <motion.p 
-          className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed"
+          className="text-xl md:text-2xl text-gray-300 mb-16 max-w-3xl mx-auto leading-relaxed"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
           data-testid="hero-description"
         >
-          I am a dedicated web developer and AI enthusiast, deeply committed 
-          to building intelligent solutions. With hackathon experience and 
-          hands-on expertise in automation.
+          I am a dedicated web developer and AI enthusiast, deeply committed to building intelligent solutions. With hackathon experience and hands-on expertise in automation.
         </motion.p>
         
         <motion.div

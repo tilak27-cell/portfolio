@@ -37,30 +37,56 @@ const Skills = () => {
           <h2 className="text-3xl font-semibold mb-8 text-gray-300" data-testid="services-title">My Services</h2>
         </motion.div>
         
-        <div className="space-y-16">
+        <div className="space-y-20">
           {services.map((service, index) => (
             <motion.div
               key={service.number}
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 80, x: index % 2 === 0 ? -40 : 40 }}
+              whileInView={{ opacity: 1, y: 0, x: 0 }}
+              transition={{ 
+                duration: 0.8, 
+                delay: index * 0.15, 
+                ease: "easeOut",
+                type: "spring",
+                stiffness: 80
+              }}
               viewport={{ once: true }}
-              className="border-b border-gray-800 pb-12"
+              whileHover={{ y: -5 }}
+              className="border-b border-gray-800 pb-16 group hover:border-gray-700 transition-colors duration-500"
               data-testid={`service-${service.number.replace('.', '')}`}
             >
-              <div className="grid md:grid-cols-4 gap-8 items-start">
+              <div className="grid md:grid-cols-4 gap-12 items-start">
                 <div className="md:col-span-1">
-                  <h3 className="text-6xl font-bold text-gray-600 mb-4" data-testid={`service-number-${service.number.replace('.', '')}`}>
+                  <motion.h3 
+                    className="text-7xl md:text-8xl font-bold text-gray-600 mb-6 group-hover:text-gray-500 transition-colors duration-500" 
+                    data-testid={`service-number-${service.number.replace('.', '')}`}
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
+                  >
                     {service.number}
-                  </h3>
+                  </motion.h3>
                 </div>
-                <div className="md:col-span-3 space-y-4">
-                  <h4 className="text-3xl font-bold text-white" data-testid={`service-title-${service.number.replace('.', '')}`}>
+                <div className="md:col-span-3 space-y-6">
+                  <motion.h4 
+                    className="text-3xl md:text-4xl font-bold text-white group-hover:text-gray-200 transition-colors duration-500" 
+                    data-testid={`service-title-${service.number.replace('.', '')}`}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.15 + 0.2 }}
+                    viewport={{ once: true }}
+                  >
                     {service.title}
-                  </h4>
-                  <p className="text-xl text-gray-300 leading-relaxed max-w-3xl" data-testid={`service-description-${service.number.replace('.', '')}`}>
+                  </motion.h4>
+                  <motion.p 
+                    className="text-xl text-gray-300 leading-relaxed max-w-4xl group-hover:text-gray-200 transition-colors duration-500" 
+                    data-testid={`service-description-${service.number.replace('.', '')}`}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.15 + 0.4 }}
+                    viewport={{ once: true }}
+                  >
                     {service.description}
-                  </p>
+                  </motion.p>
                 </div>
               </div>
             </motion.div>
