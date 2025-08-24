@@ -9,7 +9,7 @@
     "start": "NODE_ENV=production node server/index.js",
     "check": "tsc",
     "db:push": "drizzle-kit push",
-    "vercel-build": "npm run build"
+    "vercel-build": "cd client && npm install && npm run build"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
