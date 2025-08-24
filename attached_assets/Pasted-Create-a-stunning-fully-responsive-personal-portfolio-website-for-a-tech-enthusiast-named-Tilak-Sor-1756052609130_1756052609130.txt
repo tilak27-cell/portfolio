@@ -1,0 +1,73 @@
+Create a stunning, fully responsive personal portfolio website for a tech enthusiast named Tilak Sorte. The portfolio should reflect a modern, premium aesthetic with green and black as primary colors, using the color palette (#022b3a, #1f7a8c, #bfdbf7, #e1e5f2, #ffffff). It should use TailwindCSS, Framer Motion animations, and be optimized for SEO and fast performance.
+
+The site should be single-page with smooth scrolling and include the following sections:
+
+Hero Section:
+
+Headline: “Building Intelligent Solutions at the Intersection of Web, AI & Automation”
+
+Dynamic text effect cycling through: Web Developer | AI Explorer | Hackathon Enthusiast.
+
+Include a professional profile image or placeholder.
+
+Two CTA buttons: “View Projects” (scroll down) and “Download Resume” (link to hosted PDF).
+
+About Me Section:
+
+Short story about being passionate about innovation, hackathons, and automation.
+
+Mention experience in SIH, IIT Delhi Space Hackathon (Top 10), and IIIT Guwahati Hacksagon (Finalist).
+
+State the mission: “Turning ideas into impactful solutions.”
+
+Projects Section:
+Display projects in responsive card layout with hover effects:
+
+Automated Workflows with n8n – Designed API integration pipelines.
+
+Object Detection with YOLOv8 – Real-time detection model with custom dataset.
+
+Bookstore Website – Full-stack e-commerce simulation.
+
+Cargo Management Website – Built at IIT Delhi Hackathon for space logistics.
+Each card should show: project name, one-line description, tech stack tags, Live Demo (Vercel link), and GitHub link.
+
+Skills Section:
+
+Show tech stack icons (HTML, CSS, JS, React, Python, YOLO, APIs, n8n, GitHub).
+
+Hover effect: small description of how each was used.
+
+Contact Section:
+
+Contact form (Name, Email, Message).
+
+Links to LinkedIn (https://www.linkedin.com/in/tilak-sorte-223ab1335/
+), GitHub (https://github.com/hysonberg27
+), and Email.
+
+Add a map snippet of Nagpur as a design element.
+
+Extra Features:
+
+Add a hackathon timeline with key events and achievements.
+
+Include a dark/light mode toggle.
+
+Fun custom 404 page: “Oops! Cargo lost in space 🚀.”
+
+Technical Requirements:
+
+Use TailwindCSS for styling.
+
+Use Framer Motion for animations.
+
+Fully responsive design (desktop, tablet, mobile).
+
+Add SEO meta tags, Open Graph tags, and favicon.
+
+Deploy-ready for Vercel with optimized assets.
+
+Provide a GitHub README template for documentation (with setup, tech stack, screenshots, live link).
+
+Write all the HTML, TailwindCSS, and necessary JavaScript in a clean and modular way. Make sure the design feels sleek, modern, and visually engaging like Netflix but tailored for a developer portfolio.
